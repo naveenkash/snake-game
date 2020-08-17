@@ -61,17 +61,20 @@ right.addEventListener("click", function () {
 });
 
 function createRandomNumber() {
-  let rdm = Math.floor(Math.random() * boxes.length);
+  let len = boxes.length - 1;
+  let rdm = Math.floor(Math.random() * len);
   while (foodMap.has(rdm)) {
-    rdm = Math.floor(Math.random() * boxes.length);
-    if (
-      !boxes[rdm].classlist.contains("food") &&
-      !boxes[rdm].classlist.contains("body") &&
-      !boxes[rdm].classlist.contains("head")
-    ) {
-      foodMap.set(rdm, rdm);
-      return rdm;
-    }
+    rdm = Math.floor(Math.random() * len);
+    foodMap.set(rdm, rdm);
+  }
+  if (
+    !boxes[rdm].classList.contains("food") &&
+    !boxes[rdm].classList.contains("body") &&
+    !boxes[rdm].classList.contains("head")
+  ) {
+    return rdm;
+  } else {
+    rdm = createRandomNumber();
   }
   return rdm;
 }
