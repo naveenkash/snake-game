@@ -6,6 +6,7 @@ var length = 20,
   left = document.querySelector("#left"),
   right = document.querySelector("#right"),
   container = document.querySelector(".container"),
+  score = document.getElementById("score"),
   queue = [],
   bodyLen = 1,
   foodMap = new Map();
@@ -34,6 +35,7 @@ let head = boxes[createRandomNumber()];
 head.classList.add("head");
 queue.unshift(head);
 generateRandomFood();
+score.innerHTML = bodyLen - 1;
 
 down.addEventListener("click", function () {
   if (dir != "u") {
@@ -111,6 +113,7 @@ function addBodyWhenEatFood(newHead) {
     newHead.innerHTML = "";
     generateRandomFood();
     bodyLen++;
+    score.innerHTML = bodyLen - 1;
   }
 }
 
@@ -143,6 +146,7 @@ function reset() {
   dir = "d";
   queue = [];
   bodyLen = 1;
+  score.innerHTML = bodyLen - 1;
   queue.unshift(boxes[random]);
   generateRandomFood();
 }
