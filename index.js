@@ -38,25 +38,25 @@ generateRandomFood();
 score.innerHTML = bodyLen - 1;
 
 down.addEventListener("click", function () {
-  if (dir != "u") {
+  if (dir != "u" && dir != "d") {
     dir = "d";
     moveDown();
   }
 });
 up.addEventListener("click", function () {
-  if (dir != "d") {
+  if (dir != "d" && dir != "u") {
     dir = "u";
     moveUp();
   }
 });
 left.addEventListener("click", function () {
-  if (dir != "r") {
+  if (dir != "r" && dir != "l") {
     dir = "l";
     moveLeft();
   }
 });
 right.addEventListener("click", function () {
-  if (dir != "l") {
+  if (dir != "l" && dir != "r") {
     dir = "r";
     moveRight();
   }
